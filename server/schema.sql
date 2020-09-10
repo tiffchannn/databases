@@ -1,10 +1,23 @@
+DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
 
-CREATE TABLE messages (
-  /* Describe your table here.*/
+CREATE TABLE chatroom (
+  id int auto_increment not null primary key,
+  chatroom_name varchar(255) not null
 );
+
+CREATE TABLE messages (
+  id int auto_increment not null primary key,
+  username varchar(255) not null,
+  content varchar(255) not null,
+  chatroom_id int not null,
+  FOREIGN KEY (chatroom_id) REFERENCES chatroom (id)
+);
+
+
 
 /* Create other tables and define schemas for them here! */
 
